@@ -1,0 +1,138 @@
+@font-face {
+    font-family: "Young";
+    src: url(assets/fonts/young-serif/YoungSerif-Regular.ttf) format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Outfit';
+    src: url('assets/fonts/outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+}
+
+:root {
+    --nutmeg: hsl(14, 45%, 36%);
+    --dark-raspberry: hsl(332, 51%, 32%);
+
+    --white: hsl(0, 0%, 100%);
+    --rose-white: hsl(330, 100%, 98%);
+    --eggshell: hsl(30, 54%, 90%);
+    --light-grey: hsl(30, 18%, 87%);
+    --wenge-brown: hsl(30, 10%, 34%);
+    --dark-charcoal: hsl(24, 5%, 18%);
+}
+
+body {
+    background-color: var(--eggshell);
+    font-family: 'Outfit';
+    color: var(--wenge-brown);
+}
+
+@media screen and (min-width: 30rem) {
+    main {
+        padding-block: 3rem;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    color: var(--dark-charcoal);
+    line-height: 1;
+    margin-block: 1em;
+}
+
+h2,
+h3 {
+    font-family: 'Young';
+}
+
+h3 {
+    color: var(--nutmeg);
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.card section+section {
+    border-block-start: 1px solid var(--light-grey);
+    padding-block-start: 1em;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.card {
+    --grid-padding: 2rem;
+    background-color: var(--white);
+    max-inline-size: 30rem;
+    margin-inline: auto;
+
+    display: grid;
+    grid-template-columns: var(--grid-padding) 1fr var(--grid-padding);
+
+    header {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1/-1;
+    }
+
+    @media screen and (min-width: 30rem) {
+        display: flex;
+        flex-direction: column;
+
+        header {
+            display: flex;
+            flex-direction: column;
+        }
+
+        img {
+            border-radius: 1em;
+        }
+
+        border-radius: 1em;
+        padding: 1em;
+    }
+}
+
+.card>*,
+.card header>* {
+    grid-column: 2;
+}
+
+.card img {
+    grid-column: 1/-1;
+    order: -1;
+}
+
+.preparation {
+    background-color: var(--rose-white);
+    margin-block: 1em;
+    border-radius: 1em;
+    padding: 1em;
+
+    .title {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: var(--dark-raspberry);
+    }
+}
+
+.nutrition {
+    list-style: none;
+    padding: 0;
+
+    li {
+        display: flex;
+        padding: 1em 2.5em;
+
+        &+li {
+            border-block-start: 1px solid var(--light-grey);
+        }
+    }
+
+    span {
+        color: var(--nutmeg);
+        inline-size: 50%;
+        margin-inline-start: auto;
+    }
+}
